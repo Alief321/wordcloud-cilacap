@@ -99,7 +99,7 @@ df["clean"] = df["title"].apply(clean_text) + " " + df["description"].apply(clea
 
 
 
-from blacklist import get_all as get_all_blacklist, get_blacklist_economy
+from blacklist import get_all as  get_blacklist_economy
 from ekonomi_keyword import get_all, ekonomi_score
 
 
