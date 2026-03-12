@@ -148,61 +148,7 @@ vectorizer = CountVectorizer(
 
 X = vectorizer.fit_transform(df["stem"])
 
-
-# ==============================
-# 5. TOPIC MODELING (LDA)
-# ==============================
-
-# n_topics = 4
-
-# lda = LatentDirichletAllocation(
-#     n_components=n_topics,
-#     random_state=42
-# )
-
-# lda.fit(X)
-
-# words = vectorizer.get_feature_names_out()
-
-
-# # tampilkan kata penting tiap topik
-# print("\n=== TOPIC KEYWORDS ===")
-
-# for i, topic in enumerate(lda.components_):
-#     print(f"\nTopik {i}")
-#     print([words[j] for j in topic.argsort()[-10:]])
-
-
-# # ==============================
-# # 6. WORDCLOUD PER TOPIK
-# # ==============================
-
-# topic_results = lda.transform(X)
-
-# df["topic"] = topic_results.argmax(axis=1)
-
-# for t in range(n_topics):
-
-#     text = " ".join(df[df["topic"] == t]["stem"])
-
-#     if len(text) < 10:
-#         continue
-
-#     wc = WordCloud(
-#         width=1000,
-#         height=500,
-#         background_color="white",
-#         stopwords=stop_words,
-#     ).generate(text)
-
-#     plt.figure(figsize=(10,5))
-#     plt.imshow(wc, interpolation="bilinear")
-#     plt.axis("off")
-#     plt.title(f"Wordcloud Cilacap - Topik {t}")
-#     plt.show()
-
-
-# Wordcloud keseluruhan
+# Wordcloud 
 all_text = " ".join(df["stem"])
 wc_all = WordCloud(
     width=1000,
@@ -222,18 +168,3 @@ filename = f"wordcloud_ekonomi_cilacap_{datetime.now().strftime('%Y%m%d')}.png"
 
 plt.savefig(filename, dpi=300, bbox_inches="tight")
 plt.show()
-
-
-
-# ==============================
-# 7. DISTRIBUSI TOPIK
-# ==============================
-
-# topic_count = df["topic"].value_counts().sort_index()
-
-# plt.figure(figsize=(8,4))
-# topic_count.plot(kind="bar")
-# plt.title("Distribusi Topik Berita Cilacap")
-# plt.xlabel("Topik")
-# plt.ylabel("Jumlah Berita")
-# plt.show()

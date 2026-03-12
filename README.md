@@ -48,6 +48,12 @@ Install dependensi:
 pip install feedparser pandas matplotlib beautifulsoup4 wordcloud scikit-learn Sastrawi
 ```
 
+atau
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Cara Menjalankan
 
 1. Buka folder proyek ini di terminal.
@@ -74,9 +80,9 @@ python main.py
 Setelah script selesai, file output akan dihasilkan di folder proyek:
 
 - Teks hasil scraping dan cleaning:
-  - `titles.txt`
-  - `descriptions.txt`
-  - `clean.txt`
+  - `titles.txt` berisi judul berita yang berhasil discraping
+  - `descriptions.txt` berisi deskripsi singkat dari berita yang berhasil discraping
+  - `clean.txt` berisi berita bersih yang telah difilter (untuk file `ekonomi_main` dan `kuliner_main`) berdasarkan keyword
 - Gambar wordcloud, contoh:
   - `wordcloud_ekonomi_cilacap_YYYYMMDD.png`
   - `wordcloud_kuliner_cilacap_YYYYMMDD.png`
@@ -97,6 +103,9 @@ query = 'ekonomi AND cilacap'
 start = datetime(2026, 2, 1)
 end = datetime(2026, 3, 10)
 ```
+
+Anda juga dapat menambahkan keyword pada file `ekonomi_keyword` dan `kuliner_keyword` untuk lebih meluaskan pencarian.
+Selain itu anda juga dapat menambahkan daftar kata yang akan tidak disertakan ke wordcloud dengan menambahkannya di file `blacklist.py`
 
 ## Catatan
 
